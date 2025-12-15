@@ -7,14 +7,14 @@ const { apps } = useApps();
 <template>
   <section id="apps" class="apps-section section">
     <div class="container">
-      <div class="apps-section__header">
+      <header class="apps-section__header">
         <h2 class="apps-section__title">
           All <span class="text-gradient">Apps</span>
         </h2>
         <p class="apps-section__subtitle">
           Free, open source, and built with ❤️ for the macOS community
         </p>
-      </div>
+      </header>
 
       <div class="apps-grid">
         <AppCard v-for="app in apps" :key="app.slug" :app="app" />
@@ -23,43 +23,45 @@ const { apps } = useApps();
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use "~/assets/scss/variables" as *;
+@use "~/assets/scss/mixins" as *;
+
 .apps-section {
   position: relative;
-}
 
-.apps-section__header {
-  text-align: center;
-  margin-bottom: var(--spacing-3xl);
-}
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-3xl;
+  }
 
-.apps-section__title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  margin-bottom: var(--spacing-md);
-}
+  &__title {
+    @include heading(clamp(2rem, 5vw, 3rem));
+    margin-bottom: $spacing-md;
+  }
 
-.apps-section__subtitle {
-  font-size: 1.125rem;
-  color: var(--color-neutral-400);
+  &__subtitle {
+    font-size: 1.125rem;
+    color: $neutral-400;
+  }
 }
 
 .apps-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-xl);
-}
+  gap: $spacing-xl;
 
-@media (max-width: 1024px) {
-  .apps-grid {
+  @include lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: calc(#{$breakpoint-lg} - 1px)) {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-@media (max-width: 768px) {
-  .apps-grid {
+  @include mobile-only {
     grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
+    gap: $spacing-lg;
   }
 }
 </style>
