@@ -17,11 +17,6 @@ defineProps<{
       </div>
     </div>
 
-    <!-- Screenshot -->
-    <div class="app-card__screenshot">
-      <img :src="app.screenshot" :alt="`${app.name} screenshot`" />
-    </div>
-
     <!-- Description -->
     <p class="app-card__description">{{ app.description }}</p>
 
@@ -124,25 +119,6 @@ defineProps<{
     font-size: 0.9375rem;
     color: var(--accent);
     font-weight: 500;
-  }
-
-  // Screenshot
-  &__screenshot {
-    margin-bottom: $spacing-lg;
-    border-radius: $radius-lg;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: $bg-dark-tertiary;
-
-    img {
-      width: 100%;
-      height: auto;
-      transition: transform $transition-slow;
-    }
-  }
-
-  &:hover &__screenshot img {
-    transform: scale(1.02);
   }
 
   // Description
