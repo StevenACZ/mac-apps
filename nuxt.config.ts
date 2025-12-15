@@ -3,6 +3,12 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
 
+  // Static site generation (no server)
+  ssr: false,
+  nitro: {
+    preset: "static",
+  },
+
   app: {
     head: {
       htmlAttrs: { lang: "en" },
