@@ -29,6 +29,7 @@ const { apps } = useApps();
 
 .apps-section {
   position: relative;
+  scroll-margin-top: 60px;
 
   &__header {
     text-align: center;

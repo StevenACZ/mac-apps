@@ -51,12 +51,16 @@ onMounted(() => {
   left: 0;
   right: 0;
   padding: $spacing-md 0;
-  background: transparent;
+  background: rgba($bg-dark, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transition: all $transition-base;
   z-index: 1000;
 
   &--scrolled {
-    @include glass-effect;
+    background: rgba($bg-dark, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
 
