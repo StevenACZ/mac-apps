@@ -18,7 +18,7 @@ onMounted(() => {
   <nav class="navbar" :class="{ 'navbar--scrolled': isScrolled }">
     <div class="container navbar__container">
       <a href="/" class="navbar__logo">
-        <span class="navbar__logo-icon">🍎</span>
+        <img src="/favicon.png" alt="macOS Apps" class="navbar__logo-icon" />
         <span class="navbar__logo-text">macOS Apps</span>
       </a>
 
@@ -82,7 +82,10 @@ onMounted(() => {
     }
 
     &-icon {
-      font-size: 1.25rem;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      object-fit: contain;
     }
   }
 
@@ -125,4 +128,3 @@ onMounted(() => {
   }
 }
 </style>
-poco te dará algo que pensar durante esta noche
