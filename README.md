@@ -1,75 +1,48 @@
-# Nuxt Minimal Starter
+<div align="center">
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# 🍎 macOS Apps
 
-## Setup
+**Beautiful landing page showcasing free & open source macOS productivity apps**
 
-Make sure to install dependencies:
+[Live Site](https://apps.stevenacz.com) · [Portfolio](https://stevenacz.com) · [GitHub](https://github.com/StevenACZ)
+
+</div>
+
+---
+
+## ✨ Featured Apps
+
+| App                | Description                               |
+| ------------------ | ----------------------------------------- |
+| 🔍 **PeekOCR**     | Extract text from anywhere on your screen |
+| 🐸 **SapoWhisper** | Voice to text powered by OpenAI Whisper   |
+| 🖱️ **BuenMouse**   | Mouse utilities for better productivity   |
+
+---
+
+## 🚀 Quick Start
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
+# Install dependencies
 bun install
-```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
+# Start dev server
 bun run dev
-```
 
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
+# Build for production
 bun run build
 ```
 
-Locally preview production build:
+---
 
-```bash
-# npm
-npm run preview
+## 🛠️ Tech Stack
 
-# pnpm
-pnpm preview
+- **Nuxt 4** - Vue framework
+- **SCSS** - Styling
+- **Static** - No server required
 
-# yarn
-yarn preview
+---
 
-# bun
-bun run preview
-```
+## 📝 License
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+MIT © [Steven](https://stevenacz.com)
