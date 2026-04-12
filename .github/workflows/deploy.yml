@@ -17,12 +17,13 @@ jobs:
       SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       SSH_PORT: ${{ secrets.SSH_PORT }}
       DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+      EXPECTED_DEPLOY_PATH: /home/ubuntu/applications/apps
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 20
 
@@ -147,6 +148,10 @@ jobs:
           fi
           if [ "$DEPLOY_PATH" = "/" ]; then
             echo "DEPLOY_PATH cannot be /."
+            exit 1
+          fi
+          if [ "$DEPLOY_PATH" != "$EXPECTED_DEPLOY_PATH" ]; then
+            echo "DEPLOY_PATH mismatch. Expected $EXPECTED_DEPLOY_PATH but got $DEPLOY_PATH"
             exit 1
           fi
 

@@ -11,3 +11,4 @@ The format is based on Keep a Changelog and this project follows Semantic Versio
 - Updated SapoWhisper messaging from generic voice-to-text wording to menu bar dictation with local or cloud transcription, overlay, auto-paste, and history.
 - Improved homepage and SEO copy to emphasize native macOS workflows, privacy, and flexibility.
 - Corrected the public macOS requirement shown for SapoWhisper to macOS 14.0+.
+- Hardened deployment configuration so GitHub Actions now validates and targets the real production path for `apps.stevenacz.com`.
