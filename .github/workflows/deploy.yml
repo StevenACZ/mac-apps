@@ -17,7 +17,7 @@ jobs:
       SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       SSH_PORT: ${{ secrets.SSH_PORT }}
       DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
-      EXPECTED_DEPLOY_PATH: /home/ubuntu/applications/apps
+      PRODUCTION_URL: https://apps.stevenacz.com
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
@@ -150,10 +150,6 @@ jobs:
             echo "DEPLOY_PATH cannot be /."
             exit 1
           fi
-          if [ "$DEPLOY_PATH" != "$EXPECTED_DEPLOY_PATH" ]; then
-            echo "DEPLOY_PATH mismatch. Expected $EXPECTED_DEPLOY_PATH but got $DEPLOY_PATH"
-            exit 1
-          fi
 
       - name: Setup SSH key
         run: |
@@ -174,3 +170,11 @@ jobs:
             -e "ssh -i ~/.ssh/deploy_key -p $port" \
             "$output_dir/" \
             "$SSH_USER@$SSH_HOST:$DEPLOY_PATH/"
+
+      - name: Validate deployed site
+        run: |
+          curl -fsSL "$PRODUCTION_URL" > /tmp/live.html
+          if ! grep -q "macOS Apps by Steven" /tmp/live.html; then
+            echo "Live site validation failed after deploy."
+            exit 1
+          fi

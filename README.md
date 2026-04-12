@@ -47,7 +47,7 @@ bun run build
 
 - Production URL: https://apps.stevenacz.com
 - Deployment runs automatically on pushes to `main` via GitHub Actions
-- The VPS target for this site must match the Nginx root for `apps.stevenacz.com`: `/home/ubuntu/applications/apps`
+- The production target is configured through repository secrets so collaborators can deploy without hardcoding server internals in the repo
 
 ---
 
