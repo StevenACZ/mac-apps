@@ -15,7 +15,7 @@
 | App                | Description                               |
 | ------------------ | ----------------------------------------- |
 | 🔍 **PeekOCR**     | Extract text from anywhere on your screen |
-| 🐸 **SapoWhisper** | Voice to text powered by OpenAI Whisper   |
+| 🐸 **SapoWhisper** | Menu bar dictation with local or cloud transcription |
 | 🖱️ **BuenMouse**   | Mouse utilities for better productivity   |
 
 ---

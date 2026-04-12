@@ -19,18 +19,19 @@ export default defineNuxtConfig({
         {
           name: "description",
           content:
-            "Free and open source macOS productivity apps. PeekOCR, SapoWhisper, BuenMouse - menu bar tools built with Swift.",
+            "Native macOS menu bar apps built with Swift. Includes SapoWhisper for local or cloud dictation with overlay, auto-paste, and history.",
         },
         {
           name: "keywords",
           content:
-            "macOS apps, menu bar apps, Swift, productivity, OCR, voice to text, mouse utilities, free, open source",
+            "macOS apps, menu bar apps, Swift, productivity, OCR, dictation, transcription, local AI, cloud AI, privacy, workflow automation, mouse utilities, open source",
         },
         // Open Graph
         { property: "og:title", content: "macOS Apps by Steven" },
         {
           property: "og:description",
-          content: "Free and open source macOS productivity apps.",
+          content:
+            "Native macOS menu bar apps, including flexible dictation workflows with SapoWhisper.",
         },
         { property: "og:type", content: "website" },
         { property: "og:url", content: "https://apps.stevenacz.com" },
@@ -44,7 +45,8 @@ export default defineNuxtConfig({
         { name: "twitter:title", content: "macOS Apps by Steven" },
         {
           name: "twitter:description",
-          content: "Free and open source macOS productivity apps.",
+          content:
+            "Native macOS menu bar apps, including flexible dictation workflows with SapoWhisper.",
         },
         {
           name: "twitter:image",

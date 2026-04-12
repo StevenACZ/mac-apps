@@ -25,8 +25,8 @@ const { apps } = useApps();
       </h1>
 
       <p class="hero__subtitle animate-fade-in-up delay-100">
-        Productivity tools that live in your menu bar.<br />
-        Built with Swift. Free and open source.
+        Native macOS tools that live in your menu bar.<br />
+        Built with Swift for faster, calmer workflows.
       </p>
 
       <!-- Mini app icons preview -->

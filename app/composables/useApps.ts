@@ -48,9 +48,9 @@ export const useApps = () => {
     {
       name: "SapoWhisper",
       slug: "sapowhisper",
-      tagline: "Voice to Text",
+      tagline: "Menu Bar Dictation",
       description:
-        "Transform your voice into text instantly. A powerful menu bar app for seamless voice transcription with global hotkeys.",
+        "A menu bar dictation app for macOS with local or cloud transcription, a live overlay, auto-paste, and searchable history.",
       icon: "/apps/sapowhisper/icon.png",
 
       hotkey: "⌥ Space",
@@ -60,14 +60,14 @@ export const useApps = () => {
       landingUrl: "https://sapo.stevenacz.com",
       accentColor: "#10B981",
       features: [
-        "Real-time transcription",
-        "Multiple language support",
-        "Whisper AI powered",
-        "Auto paste to active app",
-        "Customizable hotkeys",
+        "Local or cloud engines",
+        "Live dictation overlay",
+        "Auto-paste into any app",
+        "Searchable transcript history",
+        "Privacy and workflow flexibility",
       ],
       requirements: {
-        macos: "13.0+",
+        macos: "14.0+",
         architecture: "Apple Silicon & Intel",
       },
     },

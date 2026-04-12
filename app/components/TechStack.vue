@@ -15,8 +15,8 @@ const features = [
   },
   {
     icon: "🔒",
-    title: "Privacy First",
-    text: "All processing happens locally on your Mac",
+    title: "Privacy & Flexibility",
+    text: "Choose local or cloud-powered workflows depending on your needs",
   },
   {
     icon: "🎨",

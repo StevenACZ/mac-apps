@@ -12,7 +12,7 @@ const { apps } = useApps();
           All <span class="text-gradient">Apps</span>
         </h2>
         <p class="apps-section__subtitle">
-          Free, open source, and built with ❤️ for the macOS community
+          Small, focused macOS tools built for speed, clarity, and control
         </p>
       </header>
 
