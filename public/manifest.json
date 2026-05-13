@@ -4,7 +4,10 @@
   "description": "Native macOS productivity apps built with Swift, including SapoWhisper, PeekOCR, and BuenMouse.",
   "start_url": "/",
   "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
   "display": "standalone",
+  "categories": ["productivity", "utilities", "developer"],
   "background_color": "#05070F",
   "theme_color": "#10B981",
   "icons": [
