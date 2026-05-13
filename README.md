@@ -12,11 +12,11 @@
 
 ## ✨ Featured Apps
 
-| App                | Description                               |
-| ------------------ | ----------------------------------------- |
-| 🔍 **PeekOCR**     | Extract text from anywhere on your screen |
+| App                | Description                                          |
+| ------------------ | ---------------------------------------------------- |
+| 🔍 **PeekOCR**     | Extract text from anywhere on your screen            |
 | 🐸 **SapoWhisper** | Menu bar dictation with local or cloud transcription |
-| 🖱️ **BuenMouse**   | Mouse utilities for better productivity   |
+| 🖱️ **BuenMouse**   | Mouse utilities for better productivity              |
 
 ---
 
@@ -39,7 +39,18 @@ bun run build
 
 - **Nuxt 4** - Vue framework
 - **SCSS** - Styling
-- **Static** - No server required
+- **SSR + Static Generation** - Search-engine friendly HTML with static output
+
+---
+
+## 🔎 SEO & Security
+
+- `ssr: true` with static output for crawlable production HTML
+- XML sitemap generated at `/sitemap.xml`
+- Web app manifest at `/manifest.json`
+- Structured data (`application/ld+json`) for `WebSite`, `ItemList`, and `SoftwareApplication`
+- Canonical + Open Graph + Twitter metadata
+- CSP meta policy with explicit sources for scripts, styles, fonts, images, and analytics endpoints
 
 ---
 

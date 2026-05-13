@@ -3,10 +3,23 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
 
-  // Static site generation (no server)
-  ssr: false,
+  ssr: true,
+  modules: ["@nuxtjs/sitemap"],
+  site: {
+    url: "https://apps.stevenacz.com",
+    name: "macOS Apps by Steven",
+  },
   nitro: {
     preset: "static",
+    prerender: {
+      routes: ["/", "/sitemap.xml"],
+    },
+  },
+  sitemap: {
+    defaults: {
+      changefreq: "weekly",
+      priority: 1,
+    },
   },
 
   app: {
@@ -20,6 +33,11 @@ export default defineNuxtConfig({
           name: "description",
           content:
             "Native macOS menu bar apps built with Swift. Includes SapoWhisper for local or cloud dictation with overlay, auto-paste, and history.",
+        },
+        {
+          name: "robots",
+          content:
+            "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
         },
         {
           name: "keywords",
@@ -39,7 +57,14 @@ export default defineNuxtConfig({
           property: "og:image",
           content: "https://apps.stevenacz.com/og-image.png",
         },
+        {
+          property: "og:image:alt",
+          content: "macOS Apps by Steven brand icon",
+        },
+        { property: "og:image:width", content: "727" },
+        { property: "og:image:height", content: "695" },
         { property: "og:locale", content: "en_US" },
+        { property: "og:site_name", content: "macOS Apps by Steven" },
         // Twitter
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: "macOS Apps by Steven" },
@@ -52,12 +77,23 @@ export default defineNuxtConfig({
           name: "twitter:image",
           content: "https://apps.stevenacz.com/og-image.png",
         },
+        {
+          name: "twitter:image:alt",
+          content: "macOS Apps by Steven brand icon",
+        },
         // Other
         { name: "theme-color", content: "#10B981" },
         { name: "author", content: "Steven" },
+        {
+          "http-equiv": "Content-Security-Policy",
+          content:
+            "default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://avatars.githubusercontent.com; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';",
+        },
       ],
       link: [
         { rel: "canonical", href: "https://apps.stevenacz.com" },
+        { rel: "manifest", href: "/manifest.json" },
+        { rel: "sitemap", type: "application/xml", href: "/sitemap.xml" },
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
         {
           rel: "icon",
