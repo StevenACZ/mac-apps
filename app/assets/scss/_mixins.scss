@@ -109,7 +109,9 @@
 
 @mixin card-hover($accent-color: $primary-500) {
   border-color: rgba($accent-color, 0.4);
-  box-shadow: $shadow-xl, 0 0 60px rgba($accent-color, 0.15);
+  box-shadow:
+    $shadow-xl,
+    0 0 60px rgba($accent-color, 0.15);
   transform: translateY(-6px);
 }
 

@@ -114,10 +114,8 @@ const { apps } = useApps();
   &__grid {
     position: absolute;
     inset: 0;
-    background-image: linear-gradient(
-        rgba(255, 255, 255, 0.02) 1px,
-        transparent 1px
-      ),
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     background-size: 60px 60px;
     mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
@@ -174,7 +172,8 @@ const { apps } = useApps();
     height: 64px;
     border-radius: $radius-xl;
     overflow: hidden;
-    box-shadow: $shadow-lg,
+    box-shadow:
+      $shadow-lg,
       0 0 30px color-mix(in srgb, var(--app-color) 20%, transparent);
     transition: all $transition-base;
     animation: float 4s ease-in-out infinite;

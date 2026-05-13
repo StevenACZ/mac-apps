@@ -1,16 +1,16 @@
 <script setup lang="ts">
 const isScrolled = ref(false);
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 50;
+};
 
 onMounted(() => {
-  const handleScroll = () => {
-    isScrolled.value = window.scrollY > 50;
-  };
-
+  handleScroll();
   window.addEventListener("scroll", handleScroll);
+});
 
-  onUnmounted(() => {
-    window.removeEventListener("scroll", handleScroll);
-  });
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
 });
 </script>
 
