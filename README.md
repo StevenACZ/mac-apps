@@ -2,7 +2,7 @@
 
 # 🍎 macOS Apps
 
-**Beautiful landing page showcasing free & open source macOS productivity apps**
+**Astro landing hub for free & open-source macOS productivity apps**
 
 [Live Site](https://apps.stevenacz.com) · [Portfolio](https://stevenacz.com) · [GitHub](https://github.com/StevenACZ)
 
@@ -38,8 +38,26 @@ bun run build
 ## 🛠️ Tech Stack
 
 - **Astro** - Static site framework
-- **SCSS** - Styling
+- **TypeScript** - Typed data layer and component props
+- **SCSS** - Design tokens, mixins, and component styles
+- **`@astrojs/sitemap`** - Sitemap generation
 - **Static HTML output** - Zero client-side JS by default for crawlable pages
+
+---
+
+## 📂 Project Structure
+
+```
+mac-apps/
+├── astro.config.mjs      # site URL, sitemap, trailing slash
+├── src/
+│   ├── pages/index.astro # single landing route
+│   ├── layouts/          # shared shell + SEO + JSON-LD
+│   ├── components/       # sections, icons, ui
+│   ├── data/apps.ts      # canonical app list
+│   └── styles/           # SCSS tokens, mixins, base
+└── public/               # icons, manifest, screenshots
+```
 
 ---
 
