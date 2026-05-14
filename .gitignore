@@ -3,12 +3,8 @@ APPS-STEVENACZ-DESIGN.md
 docs/
 Docs/
 
-# Nuxt dev/build outputs
-.output
-.data
-.nuxt
-.nitro
-.cache
+# Astro dev/build outputs
+.astro
 dist
 
 # Node dependencies
@@ -37,9 +33,6 @@ logs
 coverage
 *.lcov
 .nyc_output
-
-# Generated types
-.nuxt/types
 
 # Vercel
 .vercel

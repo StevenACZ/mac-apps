@@ -1,0 +1,23 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<svg
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="3"
+  class:list={["icon", className]}
+>
+  <polyline points="20 6 9 17 4 12"></polyline>
+</svg>
+
+<style>
+  .icon {
+    width: 1em;
+    height: 1em;
+  }
+</style>

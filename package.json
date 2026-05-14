@@ -2,34 +2,31 @@
   "name": "mac-apps",
   "type": "module",
   "private": true,
+  "version": "0.0.1",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
     "format": "npx prettier --write .",
     "format:check": "npx prettier --check .",
-    "typecheck": "nuxt typecheck"
+    "typecheck": "astro check"
   },
   "dependencies": {
-    "@nuxtjs/sitemap": "^8.0.15",
-    "nuxt": "^4.4.5",
-    "vue": "^3.5.34",
-    "vue-router": "^5.0.7"
+    "astro": "^6.3.3"
   },
   "devDependencies": {
-    "sass": "^1.99.0"
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/sitemap": "^3.7.2",
+    "sass": "^1.99.0",
+    "typescript": "^6.0.3"
   },
   "overrides": {
     "brace-expansion": "5.0.6",
-    "defu": "6.1.7",
-    "lodash": "4.18.1",
     "minimatch": "10.2.5",
     "picomatch": "4.0.4",
     "postcss": "8.5.14",
     "rollup": "4.60.3",
-    "tar": "7.5.15",
     "yaml": "2.9.0"
   }
 }

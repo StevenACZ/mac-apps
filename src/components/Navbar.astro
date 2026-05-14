@@ -1,0 +1,131 @@
+---
+import IconLink from "./ui/IconLink.astro";
+import GitHubIcon from "./icons/GitHubIcon.astro";
+import ExternalLinkIcon from "./icons/ExternalLinkIcon.astro";
+---
+
+<nav class="navbar" data-navbar>
+  <div class="container navbar__container">
+    <a href="/" class="navbar__logo">
+      <img src="/favicon.png" alt="macOS Apps" class="navbar__logo-icon" />
+      <span class="navbar__logo-text">macOS Apps</span>
+    </a>
+
+    <div class="navbar__links">
+      <IconLink href="https://github.com/StevenACZ" external>
+        <GitHubIcon slot="icon" />
+        GitHub
+      </IconLink>
+      <a
+        href="https://stevenacz.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="navbar__portfolio"
+      >
+        Portfolio
+        <ExternalLinkIcon class="navbar__arrow" />
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const navbar = document.querySelector<HTMLElement>("[data-navbar]");
+  if (navbar) {
+    const handleScroll = () => {
+      navbar.classList.toggle("navbar--scrolled", window.scrollY > 50);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+  }
+</script>
+
+<style lang="scss">
+  @use "../styles/variables" as *;
+  @use "../styles/mixins" as *;
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: $spacing-md 0;
+    background: rgba($bg-dark, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all $transition-base;
+    z-index: 1000;
+
+    &--scrolled {
+      background: rgba($bg-dark, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    &__container {
+      @include flex-between;
+    }
+
+    &__logo {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: $neutral-50;
+      transition: opacity $transition-fast;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &__logo-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      object-fit: contain;
+    }
+
+    &__links {
+      display: flex;
+      align-items: center;
+      gap: $spacing-lg;
+    }
+
+    &__portfolio {
+      display: flex;
+      align-items: center;
+      gap: $spacing-xs;
+      padding: $spacing-sm $spacing-md;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: $radius-md;
+      color: $neutral-200;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      transition: background $transition-fast;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    &__arrow {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      transition: transform $transition-fast;
+    }
+
+    &__portfolio:hover &__arrow {
+      transform: translate(2px, -2px);
+    }
+
+    @include mobile-only {
+      &__logo-text {
+        display: none;
+      }
+    }
+  }
+</style>
