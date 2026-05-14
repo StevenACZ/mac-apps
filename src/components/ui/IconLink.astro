@@ -1,0 +1,47 @@
+---
+interface Props {
+  href: string;
+  external?: boolean;
+}
+
+const { href, external } = Astro.props;
+const target = external ? "_blank" : undefined;
+const rel = external ? "noopener noreferrer" : undefined;
+const hasIcon = Astro.slots.has("icon");
+---
+
+<a href={href} target={target} rel={rel} class="icon-link">
+  {
+    hasIcon && (
+      <span class="icon-link__icon">
+        <slot name="icon" />
+      </span>
+    )
+  }
+  <slot />
+</a>
+
+<style lang="scss">
+  @use "../../styles/variables" as *;
+  @use "../../styles/mixins" as *;
+
+  .icon-link {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: $neutral-400;
+    @include link-hover;
+
+    &__icon {
+      display: flex;
+      align-items: center;
+    }
+
+    &__icon :global(svg) {
+      width: 18px;
+      height: 18px;
+    }
+  }
+</style>

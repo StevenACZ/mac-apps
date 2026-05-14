@@ -1,0 +1,215 @@
+---
+import type { App } from "../data/apps";
+import Button from "./ui/Button.astro";
+import CheckIcon from "./icons/CheckIcon.astro";
+import DownloadIcon from "./icons/DownloadIcon.astro";
+import GitHubIcon from "./icons/GitHubIcon.astro";
+import ExternalLinkIcon from "./icons/ExternalLinkIcon.astro";
+
+interface Props {
+  app: App;
+}
+
+const { app } = Astro.props;
+---
+
+<article class="app-card" style={`--accent: ${app.accentColor}`}>
+  <div class="app-card__header">
+    <img src={app.icon} alt={app.name} class="app-card__icon" />
+    <div class="app-card__info">
+      <h3 class="app-card__name">{app.name}</h3>
+      <p class="app-card__tagline">{app.tagline}</p>
+    </div>
+  </div>
+
+  <p class="app-card__description">{app.description}</p>
+
+  <ul class="app-card__features">
+    {
+      app.features.map((feature) => (
+        <li class="app-card__feature">
+          <CheckIcon class="app-card__check" />
+          {feature}
+        </li>
+      ))
+    }
+  </ul>
+
+  {
+    app.hotkey && (
+      <div class="app-card__hotkey">
+        <span class="app-card__hotkey-label">{app.hotkeyLabel}</span>
+        <kbd class="app-card__kbd">{app.hotkey}</kbd>
+      </div>
+    )
+  }
+
+  <div class="app-card__requirements">
+    <span class="app-card__requirement">macOS {app.requirements.macos}</span>
+    <span class="app-card__requirement">{app.requirements.architecture}</span>
+  </div>
+
+  <div class="app-card__actions">
+    <Button href={app.downloadUrl} external size="sm">
+      <DownloadIcon slot="icon" />
+      Download
+    </Button>
+    <Button href={app.githubUrl} external variant="secondary" size="sm">
+      <GitHubIcon slot="icon" />
+      GitHub
+    </Button>
+    {
+      app.landingUrl && (
+        <Button
+          href={app.landingUrl}
+          external
+          variant="secondary"
+          size="sm"
+        >
+          <ExternalLinkIcon slot="icon" />
+          Website
+        </Button>
+      )
+    }
+  </div>
+</article>
+
+<style lang="scss">
+  @use "../styles/variables" as *;
+  @use "../styles/mixins" as *;
+
+  .app-card {
+    @include card;
+    @include flex-column;
+    @include fade-in-up;
+
+    &:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+    &:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    &:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    &:hover {
+      @include card-hover(var(--accent));
+    }
+
+    &__header {
+      display: flex;
+      align-items: center;
+      gap: $spacing-md;
+      margin-bottom: $spacing-lg;
+    }
+
+    &__icon {
+      width: 64px;
+      height: 64px;
+      border-radius: $radius-xl;
+      box-shadow: $shadow-md;
+    }
+
+    &__name {
+      @include heading(1.5rem);
+      margin-bottom: $spacing-xs;
+    }
+
+    &__tagline {
+      font-size: 0.9375rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    &__description {
+      @include small-text;
+      line-height: 1.6;
+      margin-bottom: $spacing-lg;
+    }
+
+    &__features {
+      @include flex-column;
+      gap: $spacing-sm;
+      margin-bottom: $spacing-lg;
+    }
+
+    &__feature {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      font-size: 0.875rem;
+      color: $neutral-300;
+    }
+
+    &__check {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+
+    &__hotkey {
+      display: flex;
+      align-items: center;
+      gap: $spacing-md;
+      padding: $spacing-md;
+      background: $bg-dark-tertiary;
+      border-radius: $radius-lg;
+      margin-bottom: $spacing-lg;
+    }
+
+    &__hotkey-label {
+      @include small-text;
+    }
+
+    &__kbd {
+      @include kbd-style;
+    }
+
+    &__requirements {
+      display: flex;
+      gap: $spacing-lg;
+      margin-bottom: $spacing-lg;
+      flex-wrap: wrap;
+    }
+
+    &__requirement {
+      font-size: 0.75rem;
+      color: $neutral-500;
+    }
+
+    &__actions {
+      display: flex;
+      gap: $spacing-sm;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    &__actions :global(.btn) {
+      flex: 1;
+      min-width: fit-content;
+    }
+
+    @include mobile-only {
+      padding: $spacing-lg;
+
+      &__icon {
+        width: 48px;
+        height: 48px;
+      }
+
+      &__name {
+        font-size: 1.25rem;
+      }
+
+      &__actions {
+        flex-direction: column;
+      }
+
+      &__actions :global(.btn) {
+        width: 100%;
+      }
+    }
+  }
+</style>

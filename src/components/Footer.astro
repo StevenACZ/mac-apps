@@ -1,0 +1,109 @@
+---
+import IconLink from "./ui/IconLink.astro";
+import GitHubIcon from "./icons/GitHubIcon.astro";
+import GlobeIcon from "./icons/GlobeIcon.astro";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer__container">
+    <div class="footer__brand">
+      <a href="/" class="footer__logo">
+        <span class="footer__logo-icon">🍎</span>
+        <span class="footer__logo-text">macOS Apps</span>
+      </a>
+      <p class="footer__tagline">
+        Made with <span class="footer__heart">❤️</span> by StevenACZ
+      </p>
+    </div>
+
+    <div class="footer__links">
+      <IconLink href="https://github.com/StevenACZ" external>
+        <GitHubIcon slot="icon" />
+        GitHub
+      </IconLink>
+      <IconLink href="https://stevenacz.com" external>
+        <GlobeIcon slot="icon" />
+        Portfolio
+      </IconLink>
+    </div>
+
+    <div class="footer__copyright">
+      <p>© {year} Steven. All rights reserved.</p>
+      <p class="footer__tech">Built with Swift for macOS</p>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss">
+  @use "../styles/variables" as *;
+  @use "../styles/mixins" as *;
+
+  .footer {
+    padding: $spacing-3xl 0 $spacing-xl;
+    background: $bg-dark;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+
+    &__container {
+      @include flex-column-center;
+      gap: $spacing-xl;
+      text-align: center;
+    }
+
+    &__brand {
+      @include flex-column-center;
+      gap: $spacing-sm;
+    }
+
+    &__logo {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: $neutral-50;
+      transition: opacity $transition-fast;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &__logo-icon {
+      font-size: 1.5rem;
+    }
+
+    &__tagline {
+      @include small-text;
+      color: $neutral-500;
+    }
+
+    &__heart {
+      display: inline-block;
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+
+    &__links {
+      display: flex;
+      gap: $spacing-lg;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &__copyright {
+      padding-top: $spacing-lg;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      width: 100%;
+
+      p {
+        font-size: 0.875rem;
+        color: $neutral-600;
+      }
+    }
+
+    &__tech {
+      margin-top: $spacing-xs;
+    }
+  }
+</style>
