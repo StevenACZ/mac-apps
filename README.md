@@ -37,16 +37,16 @@ bun run build
 
 ## 🛠️ Tech Stack
 
-- **Nuxt 4** - Vue framework
+- **Astro** - Static site framework
 - **SCSS** - Styling
-- **SSR + Static Generation** - Search-engine friendly HTML with static output
+- **Static HTML output** - Zero client-side JS by default for crawlable pages
 
 ---
 
 ## 🔎 SEO & Security
 
-- `ssr: true` with static output for crawlable production HTML
-- XML sitemap generated at `/sitemap.xml`
+- Pre-rendered static HTML for crawlable production pages
+- XML sitemap generated at `/sitemap-index.xml`
 - Web app manifest at `/manifest.json`
 - Structured data (`application/ld+json`) for `WebSite`, `ItemList`, and `SoftwareApplication`
 - Canonical + Open Graph + Twitter metadata

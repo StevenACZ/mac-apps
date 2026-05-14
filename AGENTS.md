@@ -13,12 +13,12 @@ Public Nuxt landing hub for Steven's macOS productivity apps. Keep it static-hos
 
 ## Project Overview
 
-| Field       | Value                                              |
-| ----------- | -------------------------------------------------- |
-| URL         | `https://apps.stevenacz.com`                       |
-| Stack       | Nuxt 4, Vue 3, TypeScript, SCSS, `@nuxtjs/sitemap` |
-| Output      | SSR enabled, generated as static HTML              |
-| Data source | `app/composables/useApps.ts`                       |
+| Field       | Value                                       |
+| ----------- | ------------------------------------------- |
+| URL         | `https://apps.stevenacz.com`                |
+| Stack       | Astro, TypeScript, SCSS, `@astrojs/sitemap` |
+| Output      | Static HTML in `dist/`                      |
+| Data source | `src/data/apps.ts`                          |
 
 Featured apps are defined in `app/composables/useApps.ts`:
 
@@ -35,40 +35,40 @@ bun run format
 bun run format:check
 bun run typecheck
 bun run build
-bun run generate
 bun run preview
 ```
 
-Use Bun because this repo tracks `bun.lock`. Keep generated `.output/`, `.nuxt/`, `dist/`, local docs, and env files out of commits.
+Use Bun because this repo tracks `bun.lock`. Keep generated `dist/`, `.astro/`, local docs, and env files out of commits.
 
 ## Structure
 
-- `app/app.vue`: root shell and structured data.
-- `app/components/`: reusable Vue components.
-- `app/composables/useApps.ts`: canonical app list.
-- `app/assets/scss/`: variables, mixins, base styles.
+- `astro.config.mjs`: site URL, sitemap integration, trailing slash behavior.
+- `src/pages/index.astro`: single landing route.
+- `src/layouts/Layout.astro`: shared shell, SEO, CSP, JSON-LD graph.
+- `src/components/`: section, icon, and ui components.
+- `src/data/apps.ts`: canonical app list and `App` interface.
+- `src/styles/`: SCSS tokens, mixins, base, animations, utilities.
 - `public/apps/`: app icons and screenshots.
-- `nuxt.config.ts`: SSR, sitemap, CSP, metadata.
 
 ## SEO Configuration
 
-- `nuxt.config.ts` owns site URL, SSR, prerendering, metadata, Open Graph, Twitter Card, manifest, sitemap, and CSP.
-- `app/app.vue` owns the JSON-LD graph.
+- `src/layouts/Layout.astro` owns metadata, Open Graph, Twitter Card, manifest link, CSP, and the JSON-LD graph.
+- `astro.config.mjs` owns site URL and sitemap integration.
 - Keep structured data consolidated and non-conflicting: `WebSite`, `ItemList`, individual `SoftwareApplication` nodes, and `Person`.
-- Keep `public/robots.txt` pointing at `https://apps.stevenacz.com/sitemap.xml`.
+- Keep `public/robots.txt` pointing at `https://apps.stevenacz.com/sitemap-index.xml`.
 - Keep `public/manifest.json` valid JSON with real icons, categories, `lang`, and `dir`.
 
 ## Adding Apps
 
-1. Add app data to `app/composables/useApps.ts` using the existing `App` interface.
+1. Add app data to `src/data/apps.ts` using the existing `App` interface.
 2. Add `icon.png` and `screenshot.png` under `public/apps/<slug>/`.
 3. Ensure app URLs are public, stable, and HTTPS.
 4. Update JSON-LD if the app list semantics change.
 
 ## Code Style
 
-- Use Vue 3 Composition API and `<script setup>`.
-- Use TypeScript for composables and shared data.
+- Use Astro components with frontmatter for logic and `<style lang="scss">` for scoped styles.
+- Use TypeScript for shared data and component props.
 - Use semantic HTML and accessible labels for interactive controls.
 - Keep UI changes aligned with the quiet, product-focused macOS landing style.
 - Prefer editing existing components and data structures over adding new abstractions.
@@ -81,17 +81,16 @@ Before marking work complete, run:
 bun run format:check
 bun run typecheck
 bun run build
-bun run generate
 bun audit
 ```
 
-For SEO work, inspect `.output/public/` for:
+For SEO work, inspect `dist/` for:
 
-- SSR HTML with `application/ld+json`
+- HTML with `application/ld+json`
 - description and Open Graph metadata
 - CSP meta tag
 - valid `manifest.json`
-- valid `sitemap.xml`
+- valid `sitemap-index.xml` and `sitemap-0.xml`
 - real social preview image
 
 ## Git Safety
