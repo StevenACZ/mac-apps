@@ -1,0 +1,56 @@
+// ============================================
+// UTILITIES - Reusable Utility Classes
+// ============================================
+
+@use "variables" as *;
+@use "mixins" as *;
+
+// ============================================
+// Layout
+// ============================================
+.container {
+  @include container;
+}
+
+.section {
+  @include section-padding;
+}
+
+// ============================================
+// Typography
+// ============================================
+.text-gradient {
+  @include text-gradient;
+}
+
+.text-muted {
+  color: $neutral-400;
+}
+
+.text-small {
+  font-size: 0.875rem;
+}
+
+// ============================================
+// Buttons
+// ============================================
+.btn {
+  @include btn-base;
+  padding: $spacing-md $spacing-xl;
+}
+
+.btn-primary {
+  @include btn-primary;
+}
+
+.btn-secondary {
+  @include btn-secondary;
+}
+
+.btn-sm {
+  @include btn-sm;
+}
+
+.btn-icon {
+  @include icon(20px);
+}
