@@ -32,5 +32,14 @@
       "type": "image/png",
       "purpose": "any"
     }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image-20260518.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "macOS Apps by Steven catalog preview"
+    }
   ]
 }
