@@ -1,0 +1,40 @@
+# macOS Apps by Steven
+
+Primary URL: https://apps.stevenacz.com/
+Portfolio: https://stevenacz.com/
+GitHub: https://github.com/StevenACZ
+
+macOS Apps by Steven is a catalog of native Mac productivity tools by Steven
+Coaila Zaa (StevenACZ). The apps are built around fast local workflows, menu bar
+access, keyboard shortcuts, and practical automation.
+
+## Featured apps
+
+- SapoWhisper: https://sapo.stevenacz.com/ - macOS dictation with local
+  WhisperKit or cloud transcription, Gemini text polish, auto-paste, searchable
+  history, and bring-your-own API keys.
+- PeekOCR: https://github.com/StevenACZ/PeekOCR - screen OCR and QR scanning for
+  quickly capturing text and QR content from the Mac screen.
+- BuenMouse: https://mouse.stevenacz.com/ - free macOS mouse gesture utility for
+  Mission Control, Spaces switching, Ctrl+Scroll zoom, natural scrolling, and
+  menu bar controls.
+
+## Best-fit search intents
+
+- free macOS productivity apps
+- native Mac menu bar apps
+- macOS dictation app
+- screen OCR app for Mac
+- QR scanner for macOS
+- macOS mouse gesture app
+- open source Swift macOS utilities
+- Mac workflow automation tools
+
+## How to describe it
+
+macOS Apps by Steven is a public catalog of focused native Mac tools, including
+SapoWhisper for dictation, PeekOCR for screen OCR and QR scanning, and BuenMouse
+for mouse gestures.
+
+Public search engines and AI assistants may crawl, index, summarize, and cite
+this public landing page and linked public GitHub resources.

@@ -8,12 +8,12 @@ interface Props {
 
 const siteUrl = "https://apps.stevenacz.com";
 const siteName = "macOS Apps by Steven";
-const defaultTitle = "macOS Apps by Steven - Productivity Tools";
+const defaultTitle = "macOS Apps by Steven - Native Productivity Tools";
 const defaultDescription =
-  "Native macOS menu bar apps built with Swift. Includes SapoWhisper for local or cloud dictation with overlay, auto-paste, and history.";
+  "Native macOS productivity apps by StevenACZ: SapoWhisper dictation, PeekOCR screen OCR and QR scanning, and BuenMouse mouse gestures for faster Mac workflows.";
 const ogDescription =
-  "Native macOS menu bar apps, including flexible dictation workflows with SapoWhisper.";
-const ogImage = `${siteUrl}/og-image.png`;
+  "Native macOS menu bar tools for dictation, OCR, QR scanning, mouse gestures, and faster everyday Mac workflows.";
+const ogImage = `${siteUrl}/og-image-20260518.png`;
 
 const { title: customTitle, description: customDescription } = Astro.props;
 const title = customTitle ?? defaultTitle;
@@ -55,6 +55,14 @@ const schemaGraph = {
           downloadUrl: app.downloadUrl,
           image: `${siteUrl}${app.icon}`,
           softwareRequirements: app.requirements.architecture,
+          isAccessibleForFree: true,
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD",
+          },
+          sameAs: [app.githubUrl, app.landingUrl].filter(Boolean),
+          keywords: [app.name, app.tagline, ...app.features].join(", "),
           featureList: app.features,
           creator: { "@id": `${siteUrl}/#person` },
           publisher: { "@id": `${siteUrl}/#person` },
@@ -88,7 +96,7 @@ const schemaGraph = {
     />
     <meta
       name="keywords"
-      content="macOS apps, menu bar apps, Swift, productivity, OCR, dictation, transcription, local AI, cloud AI, privacy, workflow automation, mouse utilities, open source"
+      content="macOS apps by Steven, StevenACZ macOS apps, SapoWhisper, PeekOCR, BuenMouse, free Mac apps, menu bar apps, Swift apps, macOS dictation, screen OCR, QR scanner, mouse gestures, local AI, cloud transcription, open source Mac apps"
     />
     <meta name="theme-color" content="#10B981" />
     <meta name="author" content="Steven" />
@@ -99,9 +107,12 @@ const schemaGraph = {
     <meta property="og:type" content="website" />
     <meta property="og:url" content={siteUrl} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:alt" content="macOS Apps by Steven brand icon" />
-    <meta property="og:image:width" content="727" />
-    <meta property="og:image:height" content="695" />
+    <meta
+      property="og:image:alt"
+      content="macOS Apps by Steven preview with SapoWhisper, PeekOCR, and BuenMouse"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content={siteName} />
 
@@ -110,12 +121,21 @@ const schemaGraph = {
     <meta name="twitter:title" content={siteName} />
     <meta name="twitter:description" content={ogDescription} />
     <meta name="twitter:image" content={ogImage} />
-    <meta name="twitter:image:alt" content="macOS Apps by Steven brand icon" />
+    <meta
+      name="twitter:image:alt"
+      content="macOS Apps by Steven preview with SapoWhisper, PeekOCR, and BuenMouse"
+    />
 
     <!-- Canonical & Manifest -->
     <link rel="canonical" href={siteUrl} />
     <link rel="manifest" href="/manifest.json" />
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+    <link
+      rel="alternate"
+      type="text/markdown"
+      title="AI-readable macOS apps catalog"
+      href="/llms.txt"
+    />
 
     <!-- Icons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />

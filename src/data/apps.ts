@@ -24,7 +24,7 @@ export const apps: App[] = [
     slug: "peekocr",
     tagline: "Screen OCR & QR Scanner",
     description:
-      "Capture text from anywhere on your screen with a simple keyboard shortcut. Also detects and copies QR code content.",
+      "Capture text from anywhere on your screen with a keyboard shortcut. PeekOCR also detects QR codes, copies results quickly, and keeps a small local capture history.",
     icon: "/apps/peekocr/icon.png",
 
     hotkey: "⇧ Space",
@@ -49,7 +49,7 @@ export const apps: App[] = [
     slug: "sapowhisper",
     tagline: "Menu Bar Dictation",
     description:
-      "A menu bar dictation app for macOS with local or cloud transcription, a live overlay, auto-paste, and searchable history.",
+      "A macOS menu bar dictation app with local WhisperKit or cloud transcription, live overlay, Gemini text polish, auto-paste, searchable history, and bring-your-own API keys.",
     icon: "/apps/sapowhisper/icon.png",
 
     hotkey: "⌥ Space",
@@ -60,10 +60,12 @@ export const apps: App[] = [
     accentColor: "#10B981",
     features: [
       "Local or cloud engines",
+      "WhisperKit, Apple Speech, Google Cloud, and Deepgram",
       "Live dictation overlay",
+      "Gemini text polish",
       "Auto-paste into any app",
       "Searchable transcript history",
-      "Privacy and workflow flexibility",
+      "Bring your own Google Cloud or Deepgram keys",
     ],
     requirements: {
       macos: "14.0+",
@@ -73,9 +75,9 @@ export const apps: App[] = [
   {
     name: "BuenMouse",
     slug: "buenmouse",
-    tagline: "Mouse Utilities",
+    tagline: "Trackpad Gestures for Mouse",
     description:
-      "Essential mouse utilities for macOS power users. Enhance your cursor with useful tools and shortcuts.",
+      "A free macOS menu bar utility that adds trackpad-style mouse gestures: Mission Control, Switch Spaces, Ctrl+Scroll zoom, natural scrolling, and launch at login.",
     icon: "/apps/buenmouse/icon.png",
 
     downloadUrl: "https://github.com/StevenACZ/BuenMouse/releases",
@@ -83,14 +85,15 @@ export const apps: App[] = [
     landingUrl: "https://mouse.stevenacz.com",
     accentColor: "#F59E0B",
     features: [
-      "Cursor location tools",
-      "Mouse acceleration control",
-      "Click visualizer",
-      "Menu bar integration",
-      "Lightweight & fast",
+      "Middle Click for Mission Control",
+      "Middle drag to switch Spaces",
+      "Ctrl + Scroll zoom",
+      "Natural scroll direction",
+      "Menu bar monitoring controls",
+      "Launch at login",
     ],
     requirements: {
-      macos: "12.0+",
+      macos: "13.0+",
       architecture: "Apple Silicon & Intel",
     },
   },
